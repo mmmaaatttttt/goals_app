@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import "./NewGoalForm.css";
 
-function NewGoalForm(props) {
-  const [formData, setFormData] = useState({
-    description: "",
-    count: 1
-  });
+const INITIAL_STATE = {
+  description: "",
+  count: "1"
+};
+
+function NewGoalForm({ add }) {
+  const [formData, setFormData] = useState(INITIAL_STATE);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(oldData => ({ ...oldData, [name]: value }));
   }
 
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    add(formData);
+    setFormData(INITIAL_STATE);
+  }
+
   return (
-    <form className="NewGoalForm">
+    <form className="NewGoalForm" onSubmit={handleSubmit}>
       <div className="NewGoalForm-input">
         <label>What is your goal?</label>
         <input
