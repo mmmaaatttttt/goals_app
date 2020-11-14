@@ -1,0 +1,16 @@
+.NewGoalForm {
+  margin: 1em;
+  border: 2px solid darkslateblue;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
+.NewGoalForm-input {
+  margin-bottom: 0.8em;
+}
+
+.NewGoalForm-input > input {
+  display: block;
+  min-width: 150px;
+  margin-top: 0.5em;
+}
