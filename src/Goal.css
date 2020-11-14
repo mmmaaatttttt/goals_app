@@ -1,0 +1,17 @@
+.Goal {
+  background-color: bisque;
+  margin: 1em;
+  padding: 0.25em 0.5em;
+  border-radius: 0.5em
+}
+
+.Goal p {
+  padding: 0;
+  margin: 0.25em 0;
+}
+
+.Goal-count {
+  font-size: 0.5em;
+  font-style: italic;
+  text-align: right;
+}
