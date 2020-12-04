@@ -10,6 +10,12 @@
   margin: 0.25em 0;
 }
 
+.Goal button {
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
+}
+
 .Goal-count {
   font-size: 0.5em;
   font-style: italic;

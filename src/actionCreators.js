@@ -1,4 +1,4 @@
-import { ADD_GOAL } from "./actionTypes";
+import { ADD_GOAL, REMOVE_GOAL } from "./actionTypes";
 
 function addGoal(payload) {
   return {
@@ -7,4 +7,11 @@ function addGoal(payload) {
   }
 }
 
-export { addGoal };
+function removeGoal(id) {
+  return {
+    type: REMOVE_GOAL,
+    id
+  }
+}
+
+export { addGoal, removeGoal };
