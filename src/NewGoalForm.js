@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addGoal } from "./actionCreators";
+import { v4 as uuid } from "uuid";
 import "./NewGoalForm.css";
 
 const INITIAL_STATE = {
@@ -6,8 +9,9 @@ const INITIAL_STATE = {
   count: "1"
 };
 
-function NewGoalForm({ add }) {
+function NewGoalForm() {
   const [formData, setFormData] = useState(INITIAL_STATE);
+  const dispatch = useDispatch();
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -16,7 +20,7 @@ function NewGoalForm({ add }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    add(formData);
+    dispatch(addGoal({ ...formData, id: uuid() }));
     setFormData(INITIAL_STATE);
   }
 

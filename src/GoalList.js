@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import NewGoalForm from "./NewGoalForm";
 import Goal from "./Goal";
 import "./GoalList.css";
@@ -11,19 +12,15 @@ function calculateGoalTotal(goals) {
   return total;
 }
 
-function GoalList(props) {
-  const [goals, setGoals] = useState([]);
-
-  function add(newGoal) {
-    setGoals(oldGoals => [newGoal, ...oldGoals]);
-  }
+function GoalList() {
+  const goals = useSelector(st => st.goals);
 
   return (
     <div>
       <h1>Weekly Goals!</h1>
-      <NewGoalForm add={add} />
+      <NewGoalForm />
       {goals.map(goal => (
-        <Goal {...goal} />
+        <Goal {...goal} key={goal.id} />
       ))}
       <h4 className="GoalList-total">
         Total number of weekly goals: {calculateGoalTotal(goals)}
