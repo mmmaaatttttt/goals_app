@@ -10,6 +10,10 @@
   margin: 0.25em 0;
 }
 
+.Goal-quote {
+  font-style: italic;
+}
+
 .Goal button {
   margin-left: auto;
   display: block;

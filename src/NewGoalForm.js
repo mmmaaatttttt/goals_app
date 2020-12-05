@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addGoal } from "./actionCreators";
+import { addGoalWithQuote } from "./actionCreators";
 import { v4 as uuid } from "uuid";
 import "./NewGoalForm.css";
 
@@ -20,7 +20,9 @@ function NewGoalForm() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    dispatch(addGoal({ ...formData, id: uuid() }));
+    let dataFromComponent = { ...formData, id: uuid() };
+    console.log("dataFromComponent", dataFromComponent);
+    dispatch(addGoalWithQuote(dataFromComponent));
     setFormData(INITIAL_STATE);
   }
 
